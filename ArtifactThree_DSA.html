@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Enhancement Three: Data Structures & Algorithms | Adam Kramez</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 60px auto;
+      background-color: #fff;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      color: #2c3e50;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+
+    a.download-link {
+      display: inline-block;
+      margin-top: 1.5rem;
+      padding: 10px 16px;
+      background-color: #2c3e50;
+      color: #fff;
+      border-radius: 5px;
+      text-decoration: none;
+    }
+
+    a.download-link:hover {
+      background-color: #1a252f;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Enhancement Three: Data Structures & Algorithms</h1>
+
+    <p><strong>Description of the Artifact:</strong><br>
+    This enhancement centers around a feature that calculates and visualizes the average political bias of all articles saved by a user. It was implemented as part of a React-based web application called <em>Tilted</em>, a political bias tracker that helps users analyze the ideological leanings of news content. This feature did not exist in the original version of the project (a travel app called <em>Travlr</em> built with the MEAN stack during CS-465 Full Stack Development). It is a completely new addition that reflects both functional innovation and algorithmic reasoning.</p>
+
+    <p>When users save articles, each article contains a <code>rating_num</code> value ranging from 1 (left) to 5 (right). The enhancement involves aggregating these values, computing their average, and then transforming the result into a textual label (e.g., “center-left”) and a visual cue using a rotated red arrow placed over a protractor image. This simple yet effective user feedback mechanism turns numeric data into a meaningful summary.</p>
+
+    <p><strong>Justification for Inclusion:</strong><br>
+    This enhancement was selected for my portfolio because it demonstrates how data structures and algorithmic thinking can solve practical design problems. Although not overly complex in a computational sense, the feature showcases an ability to:
+      <ul>
+        <li>Traverse collections (<code>.map</code>, <code>.filter</code>, <code>.reduce</code>) to extract and manipulate relevant data,</li>
+        <li>Convert numerical averages into qualitative categories using mapping logic,</li>
+        <li>Apply algorithmic thinking to drive visual outcomes (e.g., rotating an arrow on a protractor),</li>
+        <li>Make data-driven UI decisions in a user-friendly way.</li>
+      </ul>
+    These techniques are widely used in industry for dashboard features, analytics, and dynamic visualizations. The <code>averageRatingNum</code> is calculated from valid entries, rounded to the nearest integer, and mapped to a label using an object lookup. A separate function or switch-case converts the same average into a rotation angle. This algorithm-to-UI bridge illustrates how abstract computation can directly enhance user interaction.</p>
+
+    <p>The inclusion of this enhancement shows I can design modular, reusable functions, apply constant-time mappings of O(n), and use React component props and state to encapsulate logic — all key software engineering and DSA skills.</p>
+
+    <p><strong>Meeting Course Outcomes:</strong><br>
+    This enhancement directly supports the course outcome of designing “solutions that solve a given problem using algorithmic principles.” The enhancement required identifying a real problem (how to summarize bias trends), designing a suitable algorithmic solution (aggregation + transformation), and implementing it with readable, maintainable logic. The trade-off of computing the average on the client side versus storing a precomputed value was considered, and I chose the dynamic approach for simplicity and flexibility at this stage. I also evaluated alternative implementations — for example, replacing the switch statement used to compute the rotation angle with a constant-time object lookup — and weighed the readability and maintainability of each.</p>
+
+    <p><strong>Reflection on the Process:</strong><br>
+    During the development of this feature, I gained a deeper appreciation for algorithmic thinking in UI development. Although the logic was straightforward, translating it into a reliable, user-friendly component required careful design. I had to account for edge cases (e.g., no saved articles), ensure data integrity (filtering out non-numeric values), and maintain separation of concerns between computation and presentation.</p>
+
+    <p>One of the most satisfying lessons was learning how a small algorithm — like a <code>reduce</code> function to compute an average — could provide meaningful insight to users. Additionally, visualizing this value via a rotating arrow (using <code>transform: rotate(...)</code>) introduced me to the challenge of aligning algorithmic output with CSS-based visual transformations.</p>
+
+    <p>The biggest technical insight came from exploring trade-offs in structure. I learned how to weigh clarity vs. efficiency, such as using <code>.map().filter().reduce()</code> in one pipeline versus pre-filtering or storing values in memory for reuse. I also recognized how simple data structures like objects as lookup tables can drastically improve scalability and legibility, especially when paired with predictable keys like bias scores.</p>
+
+    <p>In future iterations, this feature could be expanded with a bar chart breakdown of political leanings or bias over time — improvements that could reuse the same foundation of data aggregation and transformation logic.</p>
+
+    <a class="download-link" href="https://github.com/AdamKramez/FinalCapstone" target="_blank">
+      📦 View Artifact & Code on GitHub
+    </a>
+  </div>
+</body>
+</html>

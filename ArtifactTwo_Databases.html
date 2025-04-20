@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Enhancement Two: Databases | Adam Kramez</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 60px auto;
+      background-color: #fff;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      color: #2c3e50;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+
+    .download-link {
+      display: inline-block;
+      margin-top: 1.5rem;
+      padding: 10px 16px;
+      background-color: #2c3e50;
+      color: #fff;
+      border-radius: 5px;
+      text-decoration: none;
+    }
+
+    .download-link:hover {
+      background-color: #1a252f;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Enhancement Two: Databases</h1>
+
+    <p>For this artifact, I am focusing on the creation and enhancement of the MongoDB database that powers the backend of my Political Bias Tracker application. The database is hosted online using MongoDB Atlas, allowing seamless access from both the backend Node.js server and the data ingestion scripts. To maintain security and modularity, the database connection URI was stored securely in a <code>.env</code> file and accessed programmatically via <code>process.env.MONGO_URI</code>. This ensured sensitive credentials were not hard-coded into the project and could be easily reused across multiple scripts and environments.</p>
+
+    <p>To populate the initial dataset, I sourced a publicly available CSV file from the AllSides GitHub repository (<a href="https://github.com/favstats/AllSideR/blob/master/data/allsides_data.csv" target="_blank">source</a>). This dataset contains bias ratings for hundreds of news publications. After downloading the CSV, I defined a MongoDB schema using Mongoose in a file called <code>publication.js</code>, which included fields such as <code>news_source</code>, <code>rating</code>, <code>rating_num</code>, <code>type</code>, and <code>url</code> (for the AllSides page). I then wrote a custom script, <code>importPublications.js</code>, to convert the CSV data into JSON. This involved trimming unnecessary whitespace, validating fields (e.g., ensuring <code>rating_num</code> was numeric), and filtering out any incomplete records before inserting the data into the MongoDB collection.</p>
+
+    <p>Initially, the dataset only included the AllSides profile URL for each publication. However, in order to support user queries based on actual news article URLs (e.g., from bbc.com, cnn.com, etc.), the database needed to include the publication's root domain. To solve this, I designed a second script that leveraged Puppeteer, a Node.js library for headless browser automation, to visit each AllSides profile page and scrape the linked official website URL for each news source. This involved launching a headless browser, navigating to the AllSides page, and extracting the <code>href</code> from the "Website" row of the info table.</p>
+
+    <p>Once the raw website URL was scraped, I passed it through a utility function called <code>cleanUrl.js</code>, which stripped prefixes such as <code>https://</code> and <code>www.</code>, and removed trailing slashes to normalize the domain (e.g., turning <code>https://www.bbc.com/</code> into <code>bbc.com</code>). This cleaned domain was then saved to the database using Mongoose's document update methods.</p>
+
+    <p>To avoid scraping blocks by Cloudflare, I used the <code>puppeteer-extra</code> library along with the stealth plugin to mask the headless nature of the browser. I also implemented a delay between each scrape to avoid rate limiting. This full automation loop enabled me to enrich the original dataset with valid domain data, ultimately supporting the core feature of the application: allowing users to paste any news article URL into a search bar and receive an accurate political bias rating based on the domain.</p>
+
+    <p>I selected this artifact because it showcases a substantial improvement over the original static database used in the Travlr CRUD app. While that database contained only manually entered fields, this artifact demonstrates dynamic ingestion, transformation, enrichment, and queryability of real-world data. It reflects my ability to integrate multiple tools and techniques—including schema design, environment configuration, automation with Puppeteer, and API development—to create a robust and functional backend service.</p>
+
+    <p>Through the process of building and enhancing this database, I gained practical experience in asynchronous scripting, troubleshooting MongoDB schema errors, working with CSV-to-JSON transformations, and scraping dynamic websites. One of the most valuable lessons I learned was how to creatively solve obstacles, such as bypassing Cloudflare's bot detection using stealth plugins. This reinforced the importance of persistence and adaptability in software development—where there's a will, there's often a technical way forward. The end result is a scalable and extensible backend that significantly improves the user experience of the app and showcases my full-stack capabilities.</p>
+
+    <a class="download-link" href="https://github.com/AdamKramez/FinalCapstone" target="_blank">
+      📦 View Artifact & Code on GitHub
+    </a>
+  </div>
+</body>
+</html>

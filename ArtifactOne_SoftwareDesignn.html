@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Enhancement One: Software Design | Adam Kramez</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 60px auto;
+      background-color: #fff;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      color: #2c3e50;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+
+    .download-link {
+      display: inline-block;
+      margin-top: 1.5rem;
+      padding: 10px 16px;
+      background-color: #2c3e50;
+      color: #fff;
+      border-radius: 5px;
+      text-decoration: none;
+    }
+
+    .download-link:hover {
+      background-color: #1a252f;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Enhancement One: Software Design/Engineering</h1>
+
+    <p>The artifact I chose for enhancement is the front-end component of my web application, originally created using the Angular framework during CS 465 (Full-Stack Development). Previously the application displayed travel packages for customers, with the ability for admins to sign in, add, delete or update packages. After the revamp, the application now allows users to submit article URLs, analyze their political bias based on the publication source, and track saved articles within a personalized dashboard. While the core concept (of a CRUD application) and some functionality were present in the original artifact, the front end suffered from design limitations, bulky configuration, and reduced flexibility. To address these issues, I completely overhauled the front end using a modern React-based stack, incorporating React, Vite, and Tailwind CSS. This enhancement demonstrates an industry-relevant evolution in both design and tooling.</p>
+
+    <p>I included this artifact in my ePortfolio because it clearly represents my ability to work with modern frontend tools and apply best practices in software engineering. The shift from Angular to React reflects an understanding of how to evaluate trade-offs in framework selection. React’s component-based architecture enabled me to design modular, reusable elements like SearchBar, SearchResult, UserSummary, and SaveSearchButton, which significantly improved maintainability and readability. Tailwind CSS provided a utility-first styling approach that reduced the need for bloated custom stylesheets, while Vite offered a lightweight build tool that greatly sped up development and hot-reload performance.</p>
+
+    <p>The refactor also demonstrates an ability to work with third-party documentation and integrate modern frameworks effectively — skills that are essential in professional software development. For example, I learned to configure Tailwind’s theme system, apply responsive design breakpoints, and manage visual states using utility classes. Through the inclusion of Tailwind, I also learned about the importance and utility of capitalizing on existing React/Vite/Tailwind component libraries and adapting pre-built component code into my own. This significantly accelerated development and helped ensure design consistency across the app. The new front end is now far more responsive, visually appealing, and easier to scale. The improved architecture means that future feature expansions — like notifications, charts, or sentiment analysis — can be easily accommodated without significant rewrites.</p>
+
+    <p>Through this enhancement I believe I have met and exceeded the ideas I initially planned in module one. In the software industry today, React and Tailwind are widely used because they promote efficient development workflows, responsive interfaces, and scalable component design. By moving from Angular to this React/Vite/Tailwind stack, I aligned the project with contemporary industry standards and showed an ability to both adopt and effectively apply modern software development practices.</p>
+
+    <p>During the enhancement process, I gained significant insight into modern frontend workflows. Learning how to configure Vite taught me about bundling optimization and the importance of developer experience. Understanding Tailwind’s class-driven styling forced me to think more systematically about spacing, layout, and UI consistency. I also improved in handling React’s state management and prop-passing patterns, enabling clean communication between components such as SearchBar and UserDashboard.</p>
+
+    <p>The biggest challenges involved migrating out of the older project structure and defining a consistent UI system. Initially, I began the rebuild from Angular with Create-React-App (CRA) before switching to Vite. This transition caused various difficulties, such as needing to reconfigure dependencies, update build logic, and rewrite parts of the file structure. These issues taught me the importance of clearly scoping and planning technology choices before development begins. In future projects, I now understand the value of defining a concrete architectural plan upfront and sticking to it. I also learned the importance of focusing on a minimum viable product (MVP) and testing core functionality before investing time in advanced features or aesthetic polish — many of which were revised later due to structural changes.</p>
+
+    <p>Looking back, this enhancement served as both a technical upgrade and a learning milestone. It reaffirmed the value of modern development tooling, modular design, and streamlined styling — all of which are central to successful frontend engineering today. The final result is a polished, performant, and maintainable application interface that is easier to build upon and aligns much more closely with professional software development expectations.</p>
+
+    <a class="download-link" href="https://github.com/AdamKramez/FinalCapstone" target="_blank">
+      📦 View Artifact & Code on GitHub
+    </a>
+  </div>
+</body>
+</html>
